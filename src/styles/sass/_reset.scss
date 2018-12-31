@@ -1,0 +1,27 @@
+@import "./mixins";
+@import "./variables";
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+  @include respond(desktop) {
+    font-size: 90%;
+  }
+  @include respond(tablet) {
+    font-size: 80%;
+  }
+  @include respond(phone) {
+    font-size: 70%;
+  }
+}
+
+body {
+  font-family: $karla-font;
+}

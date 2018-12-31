@@ -1,0 +1,29 @@
+%button-base {
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+  padding: 0.3rem;
+}
+
+%input-base {
+  text-align: right;
+  outline: none;
+  border: none;
+  padding: 0.3rem;
+  color: inherit;
+  &::placeholder {
+    color: inherit;
+  }
+}
+
+%page-container-base {
+  padding-top: 5rem;
+  width: 100%;
+  min-height: 100vh;
+  overflow-y: scroll;
+  -ms-overflow-style: none; // IE 10+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
