@@ -9,7 +9,7 @@ const db = {
 const port = process.env.PORT;
 
 const session = {
-  key: process.env.SESSION_KEY,
+  expiration: process.env.SESSION_EXPIRATION,
   secret: process.env.SESSION_SECRET
 };
 
