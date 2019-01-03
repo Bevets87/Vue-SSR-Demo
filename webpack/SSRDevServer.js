@@ -103,7 +103,8 @@ class SSRDevServer extends Observable {
   }
   createClientCompiler() {
     clientConfig.entry = ["webpack-hot-middleware/client", clientConfig.entry];
-    clientConfig.output.filename = "js/[name].js";
+    clientConfig.output.path = path.join(process.cwd(), "dist");
+    clientConfig.output.filename = "[name].js";
     clientConfig.output.publicPath = "/public/";
     clientConfig.plugins.push(
       new webpack.HotModuleReplacementPlugin(),

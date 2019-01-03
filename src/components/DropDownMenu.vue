@@ -4,7 +4,7 @@
       {{selected}}
       <i class="fas fa-angle-down"></i>
     </button>
-    <div v-show="isVisible" class="drop-down__menu" ref="menu">
+    <div v-show="isVisible" class="drop-down__menu">
       <button
         :style="buttonStyles"
         v-on:click="handleClick"
@@ -16,7 +16,6 @@
   </div>
 </template>
 <script>
-import { fadeInStaggered, fadeOutStaggered } from "../styles/animations";
 export default {
   name: "drop-down-menu",
   props: ["selections", "selected", "styles"],
@@ -26,32 +25,23 @@ export default {
     };
   },
   methods: {
-    showMenu(cb = null) {
+    showMenu() {
       this.isVisible = true;
-      if (cb) {
-        cb();
-      }
     },
     hideMenu() {
       this.isVisible = false;
     },
-    fadeInMenu() {
-      fadeInStaggered(this.$refs.menu.children);
-    },
-    fadeOutMenu() {
-      fadeOutStaggered(this.$refs.menu.children, this.hideMenu.bind(this));
-    },
     toggleMenu() {
       if (!this.isVisible) {
-        this.showMenu(this.fadeInMenu);
+        this.showMenu();
       } else {
-        this.fadeOutMenu();
+        this.hideMenu();
       }
     },
     handleClick(e) {
       let selected = e.target.value;
       this.$emit("select", selected);
-      this.fadeOutMenu();
+      this.hideMenu();
     }
   },
   computed: {
@@ -82,9 +72,10 @@ export default {
 %drop-down__menu {
   position: absolute;
   width: 100%;
+
   button {
     @extend %button-base;
-    opacity: 0;
+    opacity: 1;
     font-size: 2.5rem;
     background: $red;
 

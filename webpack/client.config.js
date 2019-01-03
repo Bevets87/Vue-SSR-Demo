@@ -3,11 +3,21 @@ const webpackMerge = require("webpack-merge");
 const baseConfig = require("./base.config");
 const UglifyJsWebpackPlugin = require("uglifyjs-webpack-plugin");
 const VueSSRClientPlugin = require("vue-server-renderer/client-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const CompressionWebpackPlugin = require("compression-webpack-plugin");
+const WebpackBundleAnalyzer = require("webpack-bundle-analyzer")
+  .BundleAnalyzerPlugin;
 
 let __root = process.cwd();
 let isProd = process.env.NODE_ENV === "production";
+
+const plugins = isProd
+  ? [
+      new VueSSRClientPlugin(),
+      new CompressionWebpackPlugin({ algorithm: "gzip" }),
+      new WebpackBundleAnalyzer()
+    ]
+  : [new VueSSRClientPlugin()];
 
 const clientConfig = {
   name: "client",
@@ -35,19 +45,13 @@ const clientConfig = {
           name: "vendor",
           chunks: "initial"
         }
-        /*styles: {
-          name: "styles",
-          test: /\.css$/,
-          chunks: "all",
-          enforce: true
-        }*/
       }
     },
     runtimeChunk: {
       name: "manifest"
     }
   },
-  plugins: [new VueSSRClientPlugin()]
+  plugins
 };
 
 module.exports = webpackMerge(baseConfig, clientConfig);

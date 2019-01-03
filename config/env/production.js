@@ -6,7 +6,7 @@ const db = {
   port: process.env.DB_PORT
 };
 
-const port = process.env.HOST;
+const port = process.env.PORT;
 
 const session = {
   key: process.env.SESSION_KEY,
@@ -20,7 +20,6 @@ const base = {
 module.exports = {
   db,
   port,
-
   base,
   session
 };
