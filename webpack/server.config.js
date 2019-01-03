@@ -13,9 +13,8 @@ const serverConfig = {
   devtool: "source-map",
   entry: path.join(__root, "src", "entry-server.js"),
   output: {
-    filename: "server.bundle.js",
-    libraryTarget: "commonjs2",
-    path: path.join(__root, "dist")
+    filename: "server-bundle.js",
+    libraryTarget: "commonjs2"
   },
   externals: new WebpackNodeExternals({
     whitelist: [/\.scss$/, /\.vue$/, /@babel\/polyfill/]

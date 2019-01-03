@@ -14,7 +14,7 @@ export default ({ module, fetchData }) => Page => ({
     loading() {
       return this.$store.state[module].loading;
     },
-    response() {
+    data() {
       return this.$store.state[module].data;
     },
     error() {
@@ -22,7 +22,7 @@ export default ({ module, fetchData }) => Page => ({
     },
     propsSuccess() {
       return {
-        response: this.response
+        data: this.data
       };
     },
     propsFailure() {

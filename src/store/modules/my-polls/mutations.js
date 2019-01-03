@@ -22,12 +22,12 @@ export default {
     if (state.options.sort[sort]) {
       state.options.sort[sort].selected = true;
     } else {
-      state.options.sort["Relevant"].selected = true;
+      state.options.sort["Newest"].selected = true;
     }
   },
   [types.RESET_SORT](state) {
-    state.options.sort["Relevant"].selected = true;
-    state.options.sort["Newest"].selected = false;
+    state.options.sort["Relevant"].selected = false;
+    state.options.sort["Newest"].selected = true;
     state.options.sort["Popular"].selected = false;
     state.options.sort["A-Z"].selected = false;
   },

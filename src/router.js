@@ -36,7 +36,6 @@ const AsyncManagePollsPage = createAsyncPage({
     store.commit(`myPolls/clear_data`);
     store.commit(`myPolls/reset_count`);
     store.commit(`myPolls/reset_offset`);
-    store.commit(`myPolls/order`, "desc");
     store.commit(`myPolls/is_loading`);
     return store.dispatch("myPolls/fetch_data");
   }

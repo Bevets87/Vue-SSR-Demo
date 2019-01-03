@@ -1,10 +1,7 @@
 const isProd = process.env.NODE_ENV === "production";
 
 const vueLoader = {
-  loader: "vue-loader",
-  options: {
-    extractCSS: isProd
-  }
+  loader: "vue-loader"
 };
 
 module.exports = {

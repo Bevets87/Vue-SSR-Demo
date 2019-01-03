@@ -9,7 +9,7 @@
       :setSearchTerm="setSearchTerm"
       :submit="handleSubmit"
     ></fetch-controls>
-    <infinite-scroll :items="response" :loadNext="fetchNext" :loading="isLoadingNext">
+    <infinite-scroll :items="data" :loadNext="fetchNext" :loading="isLoadingNext">
       <template slot-scope="{ item }">
         <poll-item
           type="selectable"
@@ -34,7 +34,7 @@ import search from "../mixins/search";
 
 export default {
   name: "polls-page",
-  props: ["response"],
+  props: ["data"],
   mixins: [offset, sort, search],
   components: {
     FetchControls,

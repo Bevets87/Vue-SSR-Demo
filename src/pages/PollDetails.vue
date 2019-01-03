@@ -32,14 +32,14 @@ import DropDownMenu from "../components/DropDownMenu.vue";
 
 export default {
   name: "poll-details-page",
-  props: ["response"],
+  props: ["data"],
   components: {
     DropDownMenu
   },
   data() {
     return {
-      selected: this.response.choices[0].value,
-      choiceIds: this.response.choices.reduce((acc, current) => {
+      selected: this.data.choices[0].value,
+      choiceIds: this.data.choices.reduce((acc, current) => {
         acc[current.value] = current.id;
 
         return acc;
@@ -64,19 +64,19 @@ export default {
       return "pollDetails";
     },
     pollId() {
-      return this.response.id;
+      return this.data.id;
     },
     choiceId() {
       return this.choiceIds[this.selected];
     },
     chartData() {
-      return this.response.choices.map(c => [c.value, c.votes]);
+      return this.data.choices.map(c => [c.value, c.votes]);
     },
     question() {
-      return this.response.question;
+      return this.data.question;
     },
     choices() {
-      return this.response.choices.map(c => c.value);
+      return this.data.choices.map(c => c.value);
     },
     dropDownMenuStyles() {
       return {

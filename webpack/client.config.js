@@ -14,8 +14,8 @@ const clientConfig = {
   entry: path.join(__root, "src", "entry-client.js"),
   devtool: isProd ? false : "eval-source-map",
   output: {
-    filename: "js/[name].[chunkhash].js",
-    path: path.join(__root, "dist"),
+    filename: "[name].[chunkhash].js",
+    path: path.join(__root, "dist", "client"),
     publicPath: "/public/"
   },
   optimization: {
@@ -34,25 +34,20 @@ const clientConfig = {
           test: /[\\/]node_modules[\\/]/,
           name: "vendor",
           chunks: "initial"
-        },
-        styles: {
+        }
+        /*styles: {
           name: "styles",
-          test: /\.scss$/,
+          test: /\.css$/,
           chunks: "all",
           enforce: true
-        }
+        }*/
       }
     },
     runtimeChunk: {
       name: "manifest"
     }
   },
-  plugins: [
-    new MiniCssExtractPlugin({
-      filename: isProd ? "[name].[hash].css" : "[name].css"
-    }),
-    new VueSSRClientPlugin()
-  ]
+  plugins: [new VueSSRClientPlugin()]
 };
 
 module.exports = webpackMerge(baseConfig, clientConfig);

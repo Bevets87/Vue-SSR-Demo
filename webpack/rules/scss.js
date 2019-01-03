@@ -5,7 +5,7 @@ let __root = process.cwd();
 let isProd = process.env.NODE_ENV === "production";
 
 const styleLoader = {
-  loader: isProd ? MiniCSSExtractPlugin.loader : "vue-style-loader"
+  loader: "vue-style-loader"
 };
 
 const cssLoader = { loader: "css-loader" };

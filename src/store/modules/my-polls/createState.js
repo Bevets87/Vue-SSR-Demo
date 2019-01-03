@@ -14,7 +14,7 @@ export function createState() {
         Popular: { selected: false, column: "votes" },
         "A-Z": { selected: false, column: "question" }
       },
-      order: null,
+      order: "desc",
       filter: ""
     }
   };

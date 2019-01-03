@@ -1,4 +1,3 @@
-const LRU = require("lru-cache");
 const path = require("path");
 const { createBundleRenderer } = require("vue-server-renderer");
 
