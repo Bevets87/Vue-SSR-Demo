@@ -37,7 +37,9 @@ module.exports = app => {
   app.get(
     "*",
     isProd
-      ? render(renderer)
+      ? (req, res) => {
+          render(renderer)(req, res);
+        }
       : (req, res) => readyPromise.then(() => render(renderer)(req, res))
   );
 };

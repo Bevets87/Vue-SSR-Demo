@@ -2,7 +2,7 @@ module.exports = req => {
   const context = {
     url: req.url,
     authenticated: !!req.session.authenticated,
-    headers: req.headers
+    headers: { cookie: req.get("cookie") || "" }
   };
 
   return context;
