@@ -10,7 +10,6 @@ const initDB = () => {
 };
 
 db.connect()
-  .then(() => initDB())
   .then(() => {
     server.listen(config.port, () => {
       console.log(`listening on port: ${config.port}`);
