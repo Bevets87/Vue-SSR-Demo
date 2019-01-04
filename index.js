@@ -6,7 +6,7 @@ const initDB = () => {
   return db
     .dropTables()
     .then(() => db.setupTables())
-    .then(() => db.seed({ users: 100, polls: 500 }));
+    .then(() => db.seed({ users: 5, polls: 25 }));
 };
 
 db.connect()
