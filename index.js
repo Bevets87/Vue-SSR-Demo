@@ -6,10 +6,11 @@ const initDB = () => {
   return db
     .dropTables()
     .then(() => db.setupTables())
-    .then(() => db.seed({ users: 100, polls: 100 }));
+    .then(() => db.seed({ users: 5, polls: 10 }));
 };
 
 db.connect()
+  .then(() => initDB())
   .then(() => {
     server.listen(config.port, () => {
       console.log(`listening on port: ${config.port}`);
