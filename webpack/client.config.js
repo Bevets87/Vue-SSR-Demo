@@ -25,7 +25,7 @@ const clientConfig = {
   devtool: isProd ? false : "eval-source-map",
   output: {
     filename: "[name].[chunkhash].js",
-    path: path.join(__root, "dist", "client"),
+    path: path.join(__root, "dist"),
     publicPath: "/public/"
   },
   optimization: {

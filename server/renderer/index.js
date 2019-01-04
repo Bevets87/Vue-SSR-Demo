@@ -15,7 +15,7 @@ module.exports = app => {
     const template = fs.readFileSync(templatePath, "utf-8");
     const bundle = require("../../dist/vue-ssr-server-bundle.json");
 
-    const clientManifest = require("../../dist/client/vue-ssr-client-manifest.json");
+    const clientManifest = require("../../dist/vue-ssr-client-manifest.json");
     renderer = createRenderer(bundle, {
       template,
       clientManifest
