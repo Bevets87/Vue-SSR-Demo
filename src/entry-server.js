@@ -25,10 +25,12 @@ export default context => {
         .filter(matchedComponent => matchedComponent.asyncData);
 
       if (asyncComponents.length) {
-        fetchPageData(store, router.currentRoute, asyncComponents).then(() => {
-          context.state = store.state;
-          resolve(app);
-        });
+        fetchPageData(store, router.currentRoute, asyncComponents)
+          .then(() => {
+            context.state = store.state;
+            resolve(app);
+          })
+          .catch(reject);
       } else {
         context.state = store.state;
         resolve(app);
