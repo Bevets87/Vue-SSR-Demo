@@ -1,6 +1,6 @@
 # Voting App
 
-[https://fcc-voting-application.herokuapp.com/](https://fcc-voting-application.herokuapp.com/)
+[]()
 
 ### User Stories:
 
