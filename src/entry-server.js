@@ -30,7 +30,9 @@ export default context => {
             context.state = store.state;
             resolve(app);
           })
-          .catch(reject);
+          .catch(error => {
+            reject({ ...error, message: "Unable to fetch data" });
+          });
       } else {
         context.state = store.state;
         resolve(app);
