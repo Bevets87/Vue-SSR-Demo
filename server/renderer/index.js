@@ -1,7 +1,12 @@
 const createRenderer = require("./createRenderer");
 const path = require("path");
 const render = require("./render");
-const templatePath = path.join(process.cwd(), "src", "index.template.html");
+const templatePath = path.join(
+  __dirname,
+  "../../",
+  "src",
+  "index.template.html"
+);
 
 let isProd = process.env.NODE_ENV === "production";
 let isTest = process.env.NODE_ENV === "testing";
